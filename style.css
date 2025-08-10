@@ -1,0 +1,61 @@
+.main-body {
+    background-color: rgb(20, 20, 20);
+    color: white;
+
+    a {
+      font-size: 16px;
+    }
+    a:visited {
+        color: rgb(255, 255, 255);
+    }
+
+    a:hover {
+      animation: glow-move 2s infinite ease-in-out;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+
+@keyframes glow-move {
+      0% {
+        text-shadow: 
+          2px 2px 5px rgba(255, 255, 255, 0.8),
+          -2px -2px 10px rgba(255, 255, 255, 0.5),
+          0 0 15px rgba(255, 255, 255, 0.3);
+      }
+      25% {
+        text-shadow: 
+          -2px 2px 10px rgba(255, 255, 255, 1),
+          2px -2px 15px rgba(255, 255, 255, 0.7),
+          0 0 20px rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        text-shadow: 
+          -2px -2px 10px rgba(255, 255, 255, 1),
+          2px 2px 20px rgba(255, 255, 255, 0.8),
+          0 0 30px rgba(255, 255, 255, 0.6);
+      }
+      75% {
+        text-shadow: 
+          2px -2px 8px rgba(255, 255, 255, 0.9),
+          -2px 2px 15px rgba(255, 255, 255, 0.6),
+          0 0 20px rgba(255, 255, 255, 0.4);
+      }
+      100% {
+        text-shadow: 
+          2px 2px 5px rgba(255, 255, 255, 0.8),
+          -2px -2px 10px rgba(255, 255, 255, 0.5),
+          0 0 15px rgba(255, 255, 255, 0.3);
+      }
+    }
+
+.main-footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
+}
+
