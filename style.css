@@ -1,11 +1,9 @@
 .main-body {
-    background-color: rgb(20, 20, 20);
-    color: white;
 
     a {
       font-size: 16px;
     }
-    a:visited {
+    a:link, a:visited, a:active {
         color: rgb(255, 255, 255);
     }
 
@@ -14,8 +12,19 @@
     }
 
     h1 {
-        text-align: center;
+        text-align: left;
     }
+}
+
+#p::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: white;
+}
+
+@keyframes blink {
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0;}
 }
 
 @keyframes glow-move {
@@ -52,7 +61,6 @@
     }
 
 .main-footer {
-    text-align: center;
     position: fixed;
     bottom: 0%;
     right: 0%;

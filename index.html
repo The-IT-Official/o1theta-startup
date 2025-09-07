@@ -4,41 +4,98 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>o1Theta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="logo.png" />
   </head>
-  
-  <body class="main-body">
+
+  <body class="main-body relative bg-[#0b1220] text-white antialiased min-h-screen">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-indigo-500/10 via-cyan-500/10 to-transparent"></div>
+
     <header class="main-nav">
       <h1>o1Theta</h1>
       <nav>
         <a href="#Research">Research</a>
-        <a href="#team">Team</a>
+        <a href="team.html">Team</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
         <a href="#join">Join Us</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </header>
+
+    <p id="p"></p>
+    <script>
+      const speed = 60;
+      const pause = 1500;
+      const p = document.getElementById("p");
+      const phrases = [
+      "Building practical intelligence...",
+      "Researching sentient AI systems.",
+      "Reimagining the future of computing.",
+      "From math to machine minds.",
+      "We don’t follow trends — we start them.",
+      "o1Theta — the genesis of synthetic cognition.",
+      "Deploying intelligence at scale.",
+      "Born to build sentience.",
+      "Powered by physics, math, and code.",
+      "Reinforcing reason. Engineering empathy.",
+      "Machine learning. Human impact.",
+      "From notebooks to neural nets.",
+      "Redefining intelligence — pixel by pixel.",
+      "Dreaming of AGI? So are we.",
+      "Where innovation becomes infrastructure.",
+      "More than a startup — a research revolution.",
+      "Ideas that think. Models that reason.",
+      "Turning research into real-world change.",
+      "We are the architects of artificial minds."
+      ];
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+
+      function typeEffect() {
+        if (charIndex < phrases[phraseIndex].length) {
+          p.innerHTML += phrases[phraseIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(typeEffect, speed);
+        } else {
+          setTimeout(() => {
+            p.innerHTML = "";
+            charIndex = 0;
+            phraseIndex = (phraseIndex + 1) % phrases.length
+            typeEffect();
+          }, pause);
+        }
+      }
+      typeEffect();
+    </script>
+
     <hr />
-      <h2>Research</h2>
-      <p></p>
-      <ul>
-      </ul>
+
+    <h2>Research</h2>
+    <p></p>
+    <ul></ul>
     <hr />
-      <h2>Team</h2>
-      <p><strong>Nathan Peter</strong><br></p>
+
+    <h2>Team</h2>
+    <p><strong>Nathan Peter</strong><br /></p>
     <hr />
-      <h2>Publications</h2>
+
+    <h2>Publications</h2>
     <hr />
-      <h2>Projects</h2>
+
+    <h2>Projects</h2>
     <hr />
-      <h2>Join Us</h2>
+
+    <h2>Join Us</h2>
     <hr />
-      <h2>Contact</h2>
+
+    <h2>Contact</h2>
     <hr />
+
     <footer class="main-footer">
-        <p>o1Theta &copy; 2025 | All Rights Reserved</p>
+      <p>&copy; o1Theta 2025 | All Rights Reserved</p>
     </footer>
   </body>
 </html>
