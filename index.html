@@ -29,50 +29,57 @@
       const speed = 60;
       const pause = 1500;
       const p = document.getElementById("p");
+
       const phrases = [
-      "Building practical intelligence...",
-      "Researching sentient AI systems.",
-      "Reimagining the future of computing.",
-      "From math to machine minds.",
-      "We don’t follow trends — we start them.",
-      "o1Theta — the genesis of synthetic cognition.",
-      "Deploying intelligence at scale.",
-      "Born to build sentience.",
-      "Powered by physics, math, and code.",
-      "Reinforcing reason. Engineering empathy.",
-      "Machine learning. Human impact.",
-      "From notebooks to neural nets.",
-      "Redefining intelligence — pixel by pixel.",
-      "Dreaming of AGI? So are we.",
-      "Where innovation becomes infrastructure.",
-      "More than a startup — a research revolution.",
-      "Ideas that think. Models that reason.",
-      "Turning research into real-world change.",
-      "We are the architects of artificial minds."
+        "Building practical intelligence...",
+        "Researching sentient AI systems.",
+        "Reimagining the future of computing.",
+        "From math to machine minds.",
+        "We don’t follow trends — we start them.",
+        "o1Theta — the genesis of synthetic cognition.",
+        "Deploying intelligence at scale.",
+        "Born to build sentience.",
+        "Powered by physics, math, and code.",
+        "Reinforcing reason. Engineering empathy.",
+        "Machine learning. Human impact.",
+        "From notebooks to neural nets.",
+        "Redefining intelligence — pixel by pixel.",
+        "Dreaming of AGI? So are we.",
+        "Where innovation becomes infrastructure.",
+        "More than a startup — a research revolution.",
+        "Ideas that think. Models that reason.",
+        "Turning research into real-world change.",
+        "We are the architects of artificial minds."
       ];
 
       let phraseIndex = 0;
       let charIndex = 0;
+      let deleting = false;
 
       function typeEffect() {
-        if (charIndex < phrases[phraseIndex].length) {
-          p.innerHTML += phrases[phraseIndex].charAt(charIndex);
+        const currentPhrase = phrases[phraseIndex];
+        if (!deleting && charIndex <= currentPhrase.length) {
+          p.innerHTML = currentPhrase.substring(0, charIndex);
           charIndex++;
           setTimeout(typeEffect, speed);
-        } else {
-          setTimeout(() => {
-            p.innerHTML = "";
-            charIndex = 0;
-            phraseIndex = (phraseIndex + 1) % phrases.length
-            typeEffect();
-          }, pause);
+        } else if (deleting && charIndex >= 0) {
+          p.innerHTML = currentPhrase.substring(0, charIndex);
+          charIndex--;
+          setTimeout(typeEffect, speed);
+        } else if (!deleting && charIndex > currentPhrase.length) {
+          deleting = true;
+          setTimeout(typeEffect, pause);
+        } else if (deleting && charIndex < 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typeEffect, speed);
         }
       }
+
       typeEffect();
     </script>
 
     <hr />
-
     <h2>Research</h2>
     <p></p>
     <ul></ul>
